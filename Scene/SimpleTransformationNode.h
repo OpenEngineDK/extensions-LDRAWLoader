@@ -25,6 +25,8 @@ using OpenEngine::Math::Matrix;
 
     class SimpleTransformationNode : public SceneNode {
 
+        OE_SCENE_NODE(SimpleTransformationNode, SceneNode)
+
 private:
 
 
@@ -39,11 +41,8 @@ public:
     
     // constructor / destructor
     SimpleTransformationNode();
-    SimpleTransformationNode(SimpleTransformationNode&);
+    SimpleTransformationNode(const SimpleTransformationNode&);
     virtual ~SimpleTransformationNode();
-
-    // ISceneNode methods
-    void Accept(ISceneNodeVisitor& visitor);
 
 
     Matrix<4,4,float> GetTransformationMatrix();

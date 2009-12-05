@@ -2,7 +2,7 @@
 #define _LDRAW_RESOURCE_H_
 
 #include <Resources/IModelResource.h>
-#include <Resources/ResourcePlugin.h>
+#include <Resources/IResourcePlugin.h>
 
 #include <Geometry/FaceSet.h>
 
@@ -17,7 +17,7 @@ namespace Resources {
  * LDRAW-model resource plug-in.
  * @class LDRAWPlugin LDRAWResource.h "LDRAWResource.h"
  */ 
-    class LDRAWPlugin : public ResourcePlugin<IModelResource> {
+    class LDRAWPlugin : public IResourcePlugin<IModelResource> {
     public:
         LDRAWPlugin();
         IModelResourcePtr CreateResource(string file);

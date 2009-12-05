@@ -6,16 +6,16 @@ namespace OpenEngine {
     namespace Scene {
 
 
-        SimpleTransformationNode::SimpleTransformationNode(SimpleTransformationNode& node) {
+        SimpleTransformationNode::SimpleTransformationNode(const SimpleTransformationNode& node) : SceneNode(node) {
             transformationMatrix = node.transformationMatrix;
         }
         SimpleTransformationNode::SimpleTransformationNode() {
             
         }
         
-    ISceneNode* SimpleTransformationNode::CloneSelf() {
-        return new SimpleTransformationNode(*this);
-    }
+        ISceneNode* SimpleTransformationNode::CloneSelf() {
+            return new SimpleTransformationNode(*this);
+        }
 
         void SimpleTransformationNode::Accept(ISceneNodeVisitor& v) {
             v.VisitSimpleTransformationNode(this);
